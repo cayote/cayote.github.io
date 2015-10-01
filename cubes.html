@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		body,
+		button {
+			text-align: center;
+			font-size: 30px;
+			padding: 6px;
+		}
+	</style>
+</head>
+
+<body>
+
+
+
+	<button onclick="randomCube()">Random cube</button>
+
+	<p id="cube"></p>
+	<button onclick="answer()">Show answer</button>
+
+	<p id="answer"></p>
+	<script>
+		var x;
+		var b;
+
+		function randomCube() {
+			document.getElementById("answer").innerHTML = '';
+			var r = [];
+			for (i = 11; i < 100; i++) {
+				r.push(i * i * i);
+
+			}
+
+			shuffle(r);
+			var cube = r[1];
+			document.getElementById("cube").innerHTML = cube;
+			b = Math.cbrt(cube);
+		}
+
+		function answer() {
+			if (b)
+				document.getElementById("answer").innerHTML = b;
+			else
+				document.getElementById("answer").innerHTML = 'Click Random cube';
+		}
+
+		function shuffle(array) {
+			var currentIndex = array.length,
+				temporaryValue, randomIndex;
+
+			// While there remain elements to shuffle...
+			while (0 !== currentIndex) {
+
+				// Pick a remaining element...
+				randomIndex = Math.floor(Math.random() * currentIndex);
+				currentIndex -= 1;
+
+				// And swap it with the current element.
+				temporaryValue = array[currentIndex];
+				array[currentIndex] = array[randomIndex];
+				array[randomIndex] = temporaryValue;
+			}
+
+			return array;
+		}
+	</script>
+
+</body>
+
+</html>
