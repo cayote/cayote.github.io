@@ -3,20 +3,61 @@
 <title> Cayote </title>
 
 <style>
-body {
+#coyote {
 background-image: url('coyote-bg.jpg');
-    background-size: cover;
-    text-align: center;
-    padding: 17px;
-    letter-spacing: 1px;
-    font-weight: 700;
-    color: #efefef;
-    background-position: 50%;
-    font-size: 17px;
+height:127px;
+width:100px;
+background-size: cover;
+background-position: 50%;
+position:fixed;
+top:0;
+left:0;
+
+}
+#coyote:hover {
+opacity:1;
+}
+#color{
+width:100px;
+height:127px;
+background-color:rgba(255,255,255,0.7);
+ transition:all 0.3s ease;
+
+}
+#color:hover{
+background-color:rgba(255,0,0,0.2);
+}
+#hi {
+text-align:left;
+padding:17px;
+color:teal;
+width:400px;
+margin:auto;
 }
 </style>
 </head>
 <body>
-Hi
+<div id="coyote"><div id="color" onClick="changeColor()"></div></div>
+<div id="hi">Hi</div>
+
+<script>
+function randomColor(){
+	var r = Math.random()*255;
+	var g =  Math.random()*255;
+	var b =  Math.random()*255;
+
+	r = Math.round(r);
+	g = Math.round(g);
+	b = Math.round(b);
+
+var rgb = r+","+g+","+b;
+return rgb;
+}
+function changeColor(){
+var rgb = randomColor();
+document.getElementById("color").style.backgroundColor = "rgba("+rgb+",0.2)";
+//alert(rgb);
+}
+</script>
 </body>
 </html>
